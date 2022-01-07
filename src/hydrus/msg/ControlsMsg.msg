@@ -1,0 +1,3 @@
+geometry_msgs/Vector3 imu_linear_acceleration
+geometry_msgs/Vector3 dvl_velocity
+float64 fluid_pressure

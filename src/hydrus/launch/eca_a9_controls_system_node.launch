@@ -1,0 +1,19 @@
+<!-- The following launch file will trigger the controls_system_node.py for the rexrov2 vechicle.-->
+
+<launch>
+
+  <!-- Launching an ocean wave world in gazebo: -->
+  <include file = "$(find uuv_gazebo_worlds)/launch/ocean_waves.launch" />
+
+  <!-- Launching rexrov2 vechicle in gazebo: -->
+  <include file = "$(find eca_a9_description)/launch/upload_eca_a9.launch" />
+
+  <!-- Remapping the required topics:-->
+  <remap from = "imu" to = "/eca_a9/imu" />
+  <remap from = "dvl" to = "/eca_a9/dvl" />
+  <remap from = "pressure" to = "/eca_a9/pressure" />
+
+  <!-- Launching node: -->
+  <node name = "controls_system_node" pkg = "hydrus" type = "controls_systems_node.py" />
+
+</launch>
